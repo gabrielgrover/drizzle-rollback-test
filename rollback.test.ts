@@ -5,7 +5,7 @@ import {eq} from "drizzle-orm";
 import { faker } from "@faker-js/faker";
 
 test("Should rollback", async () => {
-	const name = faker.person.firstName();
+  const name = faker.person.firstName();
   await expect(() =>
     addUser(name)
   ).rejects.toThrow();
