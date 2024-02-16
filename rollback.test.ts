@@ -5,23 +5,23 @@ import {eq} from "drizzle-orm";
 
 test("Should rollback", async () => {
   await expect(() =>
-    addTwoUsers()
+    addUsers()
   ).rejects.toThrow();
 	
-	const users = await db
-		.select()
-		.from(Schema.users)
-		.where(eq(Schema.users.name, "duder"));
+  const users = await db
+    .select()
+    .from(Schema.users)
+    .where(eq(Schema.users.name, "duder"));
 
-	expect(users).toHaveLength(0);
+  expect(users).toHaveLength(0);
 });
 
-async function addTwoUsers() {
-	await db.transaction(async tx => {
-		await tx.insert(Schema.users).values({
-			name: "duder"
-		});
+async function addUsers() {
+  await db.transaction(async tx => {
+    await tx.insert(Schema.users).values({
+      name: "duder"
+    });
 
-		throw new Error("BOOM");
-	});
+    throw new Error("BOOM");
+  });
 }
