@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:push": "drizzle-kit push:sqlite",
+    "test": "pnpm db:push; vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^9.4.1",
+    "drizzle-kit": "^0.20.14",
+    "drizzle-orm": "^0.29.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "vitest": "^1.2.2"
+  }
+}
